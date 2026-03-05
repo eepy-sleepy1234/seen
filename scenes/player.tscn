@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://imvruh1b8nns"]
+[gd_scene load_steps=29 format=3 uid="uid://imvruh1b8nns"]
 
 [ext_resource type="Texture2D" uid="uid://c1nreybu1noxr" path="res://assets/Scientist Sheet.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cl21jbqgnxddm" path="res://scripts/player.gd" id="1_g2els"]
@@ -34,6 +34,22 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("1_3vyb7")
@@ -137,6 +153,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}],
+"loop": true,
+"name": &"idle_ghost_side",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ni07")
+}],
+"loop": true,
+"name": &"idle_ghost_up",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l71n6")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2ow")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fjrip")
 }, {
 "duration": 1.0,
@@ -209,12 +257,14 @@ size = Vector2(16.8919, 12.027)
 
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(1.48, 1.48)
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_g2els")
 is_ghost = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jej6c")
-animation = &"up_ghost"
+animation = &"side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.337838, 3.98649)
