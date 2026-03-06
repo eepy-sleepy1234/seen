@@ -252,20 +252,20 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(16.8919, 12.027)
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 7.5
 
 [node name="player" type="CharacterBody2D"]
-scale = Vector2(1.48, 1.48)
+z_index = 20
+scale = Vector2(0.8, 0.8)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_g2els")
-is_ghost = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jej6c")
 animation = &"side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.337838, 3.98649)
-shape = SubResource("RectangleShape2D_g2els")
+position = Vector2(-3.55271e-15, 2.5)
+shape = SubResource("CircleShape2D_g2els")

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 var speed = 100
 var last_direction = 0
-@export var is_ghost = false
+@export var is_ghost = true
 
 func _physics_process(_delta):
 	# setup direction of movement
@@ -11,10 +11,14 @@ func _physics_process(_delta):
 	if is_ghost:
 		set_collision_mask_value(2, true)
 		set_collision_mask_value(1, false)
+		set_collision_layer_value(2, true)
+		set_collision_layer_value(1, false)
 		modulate.a = 0.82
 	else:
 		set_collision_mask_value(1, true)
 		set_collision_mask_value(2, false)
+		set_collision_layer_value(1, true)
+		set_collision_layer_value(2, false)
 		modulate.a = 1
 		
 	if Input.is_action_pressed("move_right"):
